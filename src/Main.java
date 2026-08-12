@@ -1,15 +1,32 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.HashSet;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+       HashSet<String> codigos = new HashSet<>();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+       Cadeira c1 = new Cadeira("Lógica de programação","lop");
+       Cadeira c2 = new Cadeira("Lógica Matemática","lom");
+       Cadeira c3 = new Cadeira("Programação Orientada a Objetos","oop");
+       Cadeira c4 = new Cadeira("Arquitetura de Computadores","arc");
+       Cadeira c5 = new Cadeira("Sistemas Opreacionais","so");
+       Cadeira c6 = new Cadeira("Rede de computadores","rede");
+       Cadeira c7 = new Cadeira("Desenvolvimento web","web");
+       Cadeira c8 = new Cadeira("Cybersegurança","cyr");
+
+       c3.inserirRequisito(c1);
+       c3.inserirRequisito(c2);
+       c6.inserirRequisito(c4);
+       c6.inserirRequisito(c5);
+       c7.inserirRequisito(c3);
+       c8.inserirRequisito(c6);
+
+       HistoricoAcademico h = new HistoricoAcademico();
+       h.inserirCadeiraFinalizada(c1.getCodigo());
+       h.inserirCadeiraFinalizada(c2.getCodigo());
+       h.inserirCadeiraFinalizada(c3.getCodigo());
+       h.inserirCadeiraFinalizada(c4.getCodigo());
+       h.inserirCadeiraFinalizada(c5.getCodigo());
+       System.out.println(h.verificarPossibilidadeIngressao(c7));
+       System.out.println(h.verificarPossibilidadeIngressao(c8));
     }
 }
